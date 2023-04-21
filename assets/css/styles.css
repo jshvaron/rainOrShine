@@ -1,0 +1,50 @@
+
+/* banner format */
+header {
+    background-image: linear-gradient(to right, rgb(91, 82, 220) , rgb(42, 26, 80));
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* font in banner */
+h1 {
+    color: white;
+    display: flex;
+    font-size: 50px;
+}
+/* container divs for search div, current weather div, and 5 day forecast div */
+#container{
+    display: flex;
+}
+/* styles search section */
+#searchBar {
+    border: 5px solid black;
+    height: 820px;
+    width: 20%;
+    margin: 20px;
+}
+/* styles forecast section */
+
+#forecast {
+    height: 420px;
+    width: 80%;
+    margin: 10px;
+
+}
+#current {
+    border: 5px solid black;
+    height: 400px;
+    margin: 10px;
+
+}
+/* styles 5 day forecast section */
+
+#fiver {
+    border: 5px solid black;
+    height: 400px;
+    margin: 10px;
+
+}
+
+
