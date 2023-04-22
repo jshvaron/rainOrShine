@@ -18,11 +18,23 @@ h1 {
     display: flex;
 }
 /* styles search section */
-#searchBar {
+#searchArea {
     border: 5px solid black;
     height: 820px;
     width: 20%;
     margin: 20px;
+}
+/* styles search bar section */
+.searchBar{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 15px;
+}
+
+button{
+    margin-top: 5px;
 }
 /* styles forecast section */
 
@@ -46,5 +58,22 @@ h1 {
     margin: 10px;
 
 }
-
-
+aside{
+    border: 5px solid black;
+    display: flex;
+    justify-content: space-evenly;
+    height: 300px;
+}
+.days {
+    border: 5px solid black;
+    width: 15%;
+}
+#currentWeather {
+    border: 5px solid black;
+    height: 300px;
+    width: 33%;
+    margin-left: 63px;
+}
+.titles {
+    margin-left: 63px;
+}

@@ -14,9 +14,9 @@
     
     <div id="container">
 
-        <div id="searchBar">
-            <section>
-                <h2>Search for City:</h2>
+        <div id="searchArea">
+            <section class="searchBar">
+                <h2 id="searchTitle">Search for City:</h2>
                 <input type="text">
                 <button>Search</button>
             </section>
@@ -24,11 +24,34 @@
     
         <div id="forecast">
             <section id="current">
-                <h2>CURRENT WEATHER:</h2>
+                <h2 class="titles">CURRENT WEATHER LOCATION:</h2>
+                <div id="currentWeather">
+                    <p>TEMP place holder</p>
+                    <p>WIND place holder</p>
+                    <p>HUMDIDITY place holder</p>
+                </div>
             </section>
         
             <section id="fiver">
-                <h2>5 DAY FORECAST:</h2>
+                <h2 class="titles">5 DAY FORECAST:</h2>
+                <aside>
+                    <div id="day-1" class="days">
+                        <p>INFO</p>
+                    </div>
+                    <div id="day-2" class="days">
+                        <p>INFO</p>
+                    </div>
+                    <div id="day-3" class="days">
+                        <p>INFO</p>
+                    </div>
+                    <div id="day-4" class="days">
+                        <p>INFO</p>
+                    </div>
+                    <div id="day-5" class="days">
+                        <p>INFO</p>
+                    </div>
+                </aside>
+
             </section>
         </div>
 
@@ -39,6 +62,6 @@
     <footer>
 
     </footer>
-    <script src="assets/js/weather.js"></script>
+    <script src="./assets/js/weather.js"></script>
 </body>
 </html>
