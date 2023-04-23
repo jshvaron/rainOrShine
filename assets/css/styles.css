@@ -111,6 +111,10 @@ button{
     margin: 10px;
 
 }
+#currentTables {
+    display: flex;
+    justify-content: space-evenly;
+}
 /* styles 5 day forecast section */
 
 #fiver {
@@ -138,7 +142,6 @@ aside{
     border-radius: 20px;
     height: 300px;
     width: 33%;
-    margin-left: 63px;
     background-color: rgba(0, 48, 151, 0.596);
     box-shadow: 20px 20px 30px rgba(2, 2, 2, 0.240);
     color: white;
