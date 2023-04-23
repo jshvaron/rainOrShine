@@ -14,20 +14,31 @@ function getCity(cityInput){
     // cityLog.innerHTML = cityInput;
 }
 //  listens for button click and pulls user input to display in function above
+// button.addEventListener('click', () => {
+//     getCity(citySearch.value);
+//     console.log(citySearch.value)
+//     // takes new iput and creates new 'p' element
+//     const cityHistory = document.getElementById('cityhistory');
+//     const newCitySearch = document.createElement('p');
+//     // newCitySearch.setAttribute('id','inline-block');
+//     newCitySearch.innerHTML = "<p id='inline-block'></p>";
+//     cityHistory.appendChild(newCitySearch);
+//     newCitySearch.textContent = citySearch.value;
+//     // cityList.appendChild(document.createTextNode(citySearch.value));
+// });
+
+const MAX_PARAGRAPHS = 9; // Maximum number of searches to display
+
 button.addEventListener('click', () => {
-    getCity(citySearch.value);
-    console.log(citySearch.value)
-    // takes new iput and creates new 'p' element
-    const cityHistory = document.getElementById('cityhistory');
-    const newCitySearch = document.createElement('p');
-    // newCitySearch.setAttribute('id','inline-block');
-    newCitySearch.innerHTML = "<p id='inline-block'></p>";
-    cityHistory.appendChild(newCitySearch);
-    newCitySearch.textContent = citySearch.value;
-    // cityList.appendChild(document.createTextNode(citySearch.value));
+  const pCount = cityList.querySelectorAll('p').length; // Get the number of p elements in the section
+  if (pCount < MAX_PARAGRAPHS) { // Check if the maximum limit is not reached
+    const newParagraph = document.createElement('p'); // Create a new p element
+    newParagraph.textContent = citySearch.value; // Set the text content of the new paragraph
+    cityList.appendChild(newParagraph); // Add the new paragraph to the section
+  } else{
+    alert('To search the Weather in more cities, see our Premium Subsricption.')
+  }
 });
-
-
 
 
 
