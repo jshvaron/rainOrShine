@@ -6,7 +6,6 @@ var city;
 // assigns Variables fo search button, input ('searcher'), output to p element
 const button = document.getElementById('btn');
 const citySearch = document.getElementById('searcher');
-const cityLog = document.getElementById('city-name');
 const cityList = document.getElementById('city-list');
 
 
