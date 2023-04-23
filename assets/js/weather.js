@@ -27,18 +27,27 @@ function getCity(cityInput){
 //     // cityList.appendChild(document.createTextNode(citySearch.value));
 // });
 
-const MAX_PARAGRAPHS = 9; // Maximum number of searches to display
+const MAX_CITY_SEARCH = 9; // Maximum number of searches to display
 
 button.addEventListener('click', () => {
   const pCount = cityList.querySelectorAll('p').length; // Get the number of p elements in the section
-  if (pCount < MAX_PARAGRAPHS) { // Check if the maximum limit is not reached
-    const newParagraph = document.createElement('p'); // Create a new p element
-    newParagraph.textContent = citySearch.value; // Set the text content of the new paragraph
-    cityList.appendChild(newParagraph); // Add the new paragraph to the section
+  if (pCount < MAX_CITY_SEARCH) { // Check if the maximum limit is not reached
+    const newcity = document.createElement('p'); // Create a new p element
+    newcity.textContent = citySearch.value; // Set the text content of the new city
+    cityList.appendChild(newcity); // Add the new city to the search area
   } else{
+    // lol
     alert('To search the Weather in more cities, see our Premium Subsricption.')
   }
 });
+
+
+
+
+
+
+
+
 
 
 
