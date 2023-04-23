@@ -7,17 +7,29 @@ var city;
 const button = document.getElementById('btn');
 const citySearch = document.getElementById('searcher');
 const cityLog = document.getElementById('city-name');
+const cityList = document.getElementById('city-list');
 
 // takes input and displays at p element under search bar
 function getCity(cityInput){
-    cityLog.innerHTML = cityInput;
+    // cityLog.innerHTML = cityInput;
 }
 //  listens for button click and pulls user input to display in function above
 button.addEventListener('click', () => {
-    getCity(searcher.value);
-    console.log(searcher.value)
-
+    getCity(citySearch.value);
+    console.log(citySearch.value)
+    // takes new iput and creates new 'p' element
+    const cityHistory = document.getElementById('cityhistory');
+    const newCitySearch = document.createElement('p');
+    // newCitySearch.setAttribute('id','inline-block');
+    newCitySearch.innerHTML = "<p id='inline-block'></p>";
+    cityHistory.appendChild(newCitySearch);
+    newCitySearch.textContent = citySearch.value;
+    // cityList.appendChild(document.createTextNode(citySearch.value));
 });
+
+
+
+
 
 
 // gets weather from API based off user input 

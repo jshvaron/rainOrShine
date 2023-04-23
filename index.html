@@ -14,44 +14,46 @@
     
     <div id="container">
 
-        <div id="searchArea">
+        <div id="searchArea" class="style">
             <section class="searchBar">
                 <h2 id="searchTitle">Search for City:</h2>
                 <input type="text" id="searcher" placeholder="What city are you looking for?">
                 <button id="btn">Search</button>
-                <div>
-                    <p id="city-name">Displays city</p>
+                <div id="city-list">
+                    <h3 id="city-name">History</h3>
                 </div>
+                <!-- nav is to navigate prior city searches that rendered through -->
+                <nav id="cityhistory"></nav>
             </section>
         </div>
     
-        <div id="forecast">
-            <section id="current">
+        <div id="forecast" >
+            <section id="current" class="style">
                 <h2 class="titles">CURRENT WEATHER LOCATION:</h2>
-                <div id="currentWeather">
-                    <p>TEMP place holder</p>
-                    <p>WIND place holder</p>
-                    <p>HUMDIDITY place holder</p>
+                <div id="currentWeather"> 
+                    <figure>TEMP place holder</figure>
+                    <figure>WIND place holder</figure>
+                    <figure>HUMDIDITY place holder</figure>
                 </div>
             </section>
         
-            <section id="fiver">
+            <section id="fiver" class="style">
                 <h2 class="titles">5 DAY FORECAST:</h2>
                 <aside>
-                    <div id="day-1" class="days">
-                        <p>INFO</p>
+                    <div id="day-1" class="days" >
+                        <h3 class="dayInfo">INFO</h3>
                     </div>
-                    <div id="day-2" class="days">
-                        <p>INFO</p>
+                    <div id="day-2" class="days" >
+                        <h3 class="dayInfo">INFO</h3>
                     </div>
-                    <div id="day-3" class="days">
-                        <p>INFO</p>
+                    <div id="day-3" class="days" c>
+                        <h3 class="dayInfo">INFO</h3>
                     </div>
-                    <div id="day-4" class="days">
-                        <p>INFO</p>
+                    <div id="day-4" class="days" >
+                        <h3 class="dayInfo">INFO</h3>
                     </div>
-                    <div id="day-5" class="days">
-                        <p>INFO</p>
+                    <div id="day-5" class="days" >
+                        <h3 class="dayInfo">INFO</h3>
                     </div>
                 </aside>
 
