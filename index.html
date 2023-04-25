@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Rain or Shine</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
                 <input type="text" id="searcher" placeholder="What city are you looking for?">
                 <button id="btn">Search</button>
                 <div id="city-list">
-                    <h3 id="city-name">History</h3>
+                    <h3 id="city-history-title">History</h3>
                 </div>
                 <!-- nav is to navigate prior city searches that rendered through -->
                 <nav id="cityhistory"></nav>
@@ -29,7 +30,7 @@
     
         <div id="forecast" >
             <section id="current" class="style">
-                <h2 class="titles">CURRENT WEATHER LOCATION:</h2>
+                <h2 class="titles">Current Weather:</h2>
                     <article id="currentTables">
                         <div id="currentWeather"> 
                             <figure>TEMP place holder</figure>
@@ -46,22 +47,22 @@
             </section>
         
             <section id="fiver" class="style">
-                <h2 class="titles">5 DAY FORECAST:</h2>
+                <h2 class="titles">5 Day Forecast:</h2>
                 <aside>
                     <div id="day-1" class="days" >
-                        <h3 class="dayInfo">INFO</h3>
+                        <h3 class="dayInfo">Monday</h3>
                     </div>
                     <div id="day-2" class="days" >
-                        <h3 class="dayInfo">INFO</h3>
+                        <h3 class="dayInfo">Tuesday</h3>
                     </div>
                     <div id="day-3" class="days" c>
-                        <h3 class="dayInfo">INFO</h3>
+                        <h3 class="dayInfo">Wednesday</h3>
                     </div>
                     <div id="day-4" class="days" >
-                        <h3 class="dayInfo">INFO</h3>
+                        <h3 class="dayInfo">Thursday</h3>
                     </div>
                     <div id="day-5" class="days" >
-                        <h3 class="dayInfo">INFO</h3>
+                        <h3 class="dayInfo">Friday</h3>
                     </div>
                 </aside>
 
@@ -78,3 +79,4 @@
     <script src="./assets/js/weather.js"></script>
 </body>
 </html>
+
