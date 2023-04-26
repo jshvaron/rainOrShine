@@ -64,65 +64,77 @@ $(document).ready(function() {
                             fetch(weatherQueryURL)
                                 .then(res => res.json())
                                 .then(data => {
+                                console.log(data);
+
+                                // grabs currentTables and inserts currentWeathertables1 as a new card with the data from the API call.
+                                const currentWeatherTables = document.getElementById('currentTables')
+                                const currentWeathertable1 = `
+                                <div id="mostCurrentWeather"> 
+                                    <figure>City: ${data.name} <img src='https://openweathermap.org/img/wn/${data.weather[0].icon}.png' </figure>
+                                    <figure>Temperature: ${data.main.temp} °F </figure>
+                                    <figure>Wind: ${data.wind.speed} mph</figure>
+                                    <figure>Humidity: ${data.main.humidity}%</figure>
+                                </div>`;
+
+                                // replaces empty current weather place holder with newly rendered weather card with user input. If user input card already exist, when a new cityButton is clicked it will replace the weather card that is displayed.
+                                currentWeatherTables.innerHTML = '';
+                                let cardRemover = document.getElementById('currentWeather')
+                                if(cardRemover){
+                                    currentWeatherTables.removeChild(cardRemover);
+                                }
+                                currentWeatherTables.insertAdjacentHTML('beforeend', currentWeathertable1);
+                                
+                            }); 
+                            const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${data[i].lat}&lon=${data[i].lon}&units=imperial&cnt=5&appid=5072822e38b72f252227ac7250f60b68`
+                            fetch(forecastURL)
+                                .then(res => res.json())
+                                .then(data => {
                                     console.log(data);
 
-                                    // grabs currentTables and inserts currentWeathertables1 as a new card with the data from the API call.
-                                    const currentWeatherTables = document.getElementById('currentTables')
-                                    const currentWeathertable1 = `
-                                    <div id="mostCurrentWeather"> 
-                                        <figure>City: ${data.name} <img src='https://openweathermap.org/img/wn/${data.weather[0].icon}.png' </figure>
-                                        <figure>Temperature: ${data.main.temp} °F </figure>
-                                        <figure>Wind: ${data.wind.speed} mph</figure>
-                                        <figure>Humidity: ${data.main.humidity}%</figure>
-                                    </div>`;
-                                    const fiver = `
-                                    <aside>
-                                    <div id="day-1" class="days" >
-                                        <h3 class="dayInfo">Date</h3>
-                                        <p>Temperature:</p>
-                                        <p>Humidity:</p>
-                                        <p>Wind:</p>
-                                    </div>
-                                    <div id="day-2" class="days" >
-                                        <h3 class="dayInfo">Date</h3>
-                                        <p>Temperature:</p>
-                                        <p>Humidity:</p>
-                                        <p>Wind:</p>
-                                    </div>
-                                    <div id="day-3" class="days" c>
-                                        <h3 class="dayInfo">Date</h3>
-                                        <p>Temperature:</p>
-                                        <p>Humidity:</p>
-                                        <p>Wind:</p>
-                                    </div>
-                                    <div id="day-4" class="days" >
-                                        <h3 class="dayInfo">Date</h3>
-                                        <p>Temperature:</p>
-                                        <p>Humidity:</p>
-                                        <p>Wind:</p>
-                                    </div>
-                                    <div id="day-5" class="days" >
-                                        <h3 class="dayInfo">Date</h3>
-                                        <p>Temperature:</p>
-                                        <p>Humidity:</p>
-                                        <p>Wind:</p>
-                                    </div>
-                                </aside>`
-
-                                    // replaces empty current weather place holder with newly rendered weather card with user input. If user input card already exist, when a new cityButton is clicked it will replace the weather card that is displayed.
-                                    currentWeatherTables.innerHTML = '';
-                                    let cardRemover = document.getElementById('currentWeather')
-                                    if(cardRemover){
-                                        currentWeatherTables.removeChild(cardRemover);
-                                    }
-                                    currentWeatherTables.insertAdjacentHTML('beforeend', currentWeathertable1);
+                                    const currentForecast5 = document.getElementById('currentForecast')
+                                    const currentForecastCards = `
+                                        <div id="day-1" class="days" >
+                                            <h3 class="dayInfo">Date:${data.list[0].dt_txt} </h3>
+                                            <p>Temperature:${data.list[0].main.temp} °F</p>
+                                            <p>Humidity:${data.list[0].main.humidity}%</p>
+                                            <p>Wind:${data.list[0].wind.speed} mph</p>
+                                        </div>
+                                        <div id="day-2" class="days" >
+                                            <h3 class="dayInfo">Date:${data.list[1].dt_txt} </h3>
+                                            <p>Temperature:${data.list[1].main.temp} °F</p>
+                                            <p>Humidity:${data.list[1].main.humidity}%</p>
+                                            <p>Wind:${data.list[1].wind.speed} mph</p>
+                                        </div>
+                                        <div id="day-3" class="days" c>
+                                            <h3 class="dayInfo">Date:${data.list[2].dt_txt} </h3>
+                                            <p>Temperature:${data.list[2].main.temp} °F</p>
+                                            <p>Humidity:${data.list[2].main.humidity}%</p>
+                                            <p>Wind:${data.list[2].wind.speed} mph</p>
+                                        </div>
+                                        <div id="day-4" class="days" >
+                                            <h3 class="dayInfo">Date:${data.list[3].dt_txt}dt_txt </h3>
+                                            <p>Temperature:${data.list[3].main.temp} °F</p>
+                                            <p>Humidity:${data.list[3].main.humidity}%</p>
+                                            <p>Wind:${data.list[3].wind.speed} mph</p>
+                                        </div>
+                                        <div id="day-5" class="days" >
+                                            <h3 class="dayInfo">Date:${data.list[4].dt_txt} </h3>
+                                            <p>Temperature:${data.list[4].main.temp} °F</p>
+                                            <p>Humidity${data.list[4].main.humidity}:%</p>
+                                            <p>Wind:${data.list[4].wind.speed} mph</p>
+                                        </div>
+                                        `;
                                 
-                                });
-
-                            
+                                currentForecast5.innerHTML = '';
+                                let forecastRemover = document.getElementById('days-r');
+                                if(forecastRemover){
+                                    currentForecast5.removeChild(forecastRemover);
+                                }
+                                currentForecast5.insertAdjacentHTML('beforeend',currentForecastCards)
+                            })
                         }
                     })
-                // .catch(error => console.error(error));
+
 
 
 
@@ -143,7 +155,40 @@ $(document).ready(function() {
     // http://api.openweathermap.org/geo/1.0/reverse?lat=32.7762719&lon=-96.7968559&limit=1&appid=5072822e38b72f252227ac7250f60b68
 
     // https://api.openweathermap.org/data/2.5/forecast?lat=32.7762719&lon=-96.7968559&units=imperial&appid=5072822e38b72f252227ac7250f60b68
+    // https://api.openweathermap.org/data/2.5/forecast?lat=32.7762719&lon=-96.7968559&units=imperial&appid=5072822e38b72f252227ac7250f60b68
 
-
+//     const fiver = `
+//     <aside>
+//     <div id="day-1" class="days" >
+//         <h3 class="dayInfo">Date</h3>
+//         <p>Temperature: °F</p>
+//         <p>Humidity: </p>
+//         <p>Wind: </p>
+//     </div>
+//     <div id="day-2" class="days" >
+//         <h3 class="dayInfo">Date</h3>
+//         <p>Temperature: °F</p>
+//         <p>Humidity: </p>
+//         <p>Wind: </p>
+//     </div>
+//     <div id="day-3" class="days" c>
+//         <h3 class="dayInfo">Date</h3>
+//         <p>Temperature: °F</p>
+//         <p>Humidity: </p>
+//         <p>Wind: </p>
+//     </div>
+//     <div id="day-4" class="days" >
+//         <h3 class="dayInfo">Date</h3>
+//         <p>Temperature: °F</p>
+//         <p>Humidity: </p>
+//         <p>Wind: </p>
+//     </div>
+//     <div id="day-5" class="days" >
+//         <h3 class="dayInfo">Date</h3>
+//         <p>Temperature: °F</p>
+//         <p>Humidity: </p>
+//         <p>Wind: </p>
+//     </div>
+// </aside>`
 
 });

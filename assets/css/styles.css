@@ -137,7 +137,14 @@ aside{
     background-color: rgba(0, 48, 151, 0.384);
     box-shadow: 20px 20px 30px rgba(2, 2, 2, 0.240);
     color: white;
-
+}
+.days-r {
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 15%;
+    background-color: rgba(0, 48, 151, 0.384);
+    box-shadow: 20px 20px 30px rgba(2, 2, 2, 0.240);
+    color: white;
 }
 
 #currentWeather {
