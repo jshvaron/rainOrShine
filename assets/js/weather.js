@@ -65,6 +65,8 @@ $(document).ready(function() {
                                 .then(res => res.json())
                                 .then(data => {
                                     console.log(data);
+
+                                        // grabs currentTables and inserts currentWeathertables1 as a new card with the data from the API call.
                                         const currentWeatherTables = document.getElementById('currentTables')
                                         const currentWeathertable1 = `
                                         <div id="mostCurrentWeather"> 
@@ -74,6 +76,8 @@ $(document).ready(function() {
                                             <figure>Humidity: ${data.main.humidity}</figure>
                                         </div>`;
                                         console.log(currentWeatherTables); // check if the element is found
+
+                                        // replaces empty current weather place holder with newly rendered weather card with user input. If user input card already exist, when a new cityButton is clicked it will replace the weather card that is displayed.
                                         currentWeatherTables.innerHTML = '';
                                         let cardRemover = document.getElementById('currentWeather')
                                         if(cardRemover){
