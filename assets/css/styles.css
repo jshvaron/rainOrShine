@@ -30,7 +30,7 @@ h3 {
     display: flex;
     justify-content: center;
     border-bottom: 2px solid rgb(255, 255, 255);
-    
+    font-size: 25px;
     width: 70%;
     margin-left: 15%;
     
@@ -83,11 +83,15 @@ input {
 p {
     height: 40px;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-    background-color: rgba(0, 48, 151, 0.596);
-    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.32);
+    border-radius: 20px;
     color: white;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+
 }
 button{
     margin-top: 5px;

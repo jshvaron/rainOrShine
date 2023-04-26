@@ -22,10 +22,22 @@ $(document).ready(function() {
       if (pCount < MAX_CITY_SEARCH) { // Check if the maximum limit is not reached
         // if max is not reached, the following will create a new button for the user input 'city' to live in.
         const input = citySearch.value;
-        const newCityButton = `<button class='cityName'>${input}</button`;
+        const newCityButton = `<button class='cityName'>${input}</button>`;
         console.log(citySearch.value);
-        cityList.insertAdjacentHTML('beforeend', newCityButton);        
         citySearch.value = '';
+        // stores button to local storage
+        localStorage.setItem('findCity', newCityButton);
+        // get button from local storage
+        function getValueFromLocalStorage(value) {
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                const storedValue = localStorage.getItem(key);
+            }
+            return null; // if value is not found
+        }
+        getValueFromLocalStorage();
+        cityList.insertAdjacentHTML('beforeend', newCityButton);        
+
         
 
       } else{
@@ -94,34 +106,34 @@ $(document).ready(function() {
                                     const currentForecast5 = document.getElementById('currentForecast')
                                     const currentForecastCards = `
                                         <div id="day-1" class="days" >
-                                            <h3 class="dayInfo">Date:${data.list[0].dt_txt} </h3>
-                                            <p>Temperature:${data.list[0].main.temp} °F</p>
-                                            <p>Humidity:${data.list[0].main.humidity}%</p>
-                                            <p>Wind:${data.list[0].wind.speed} mph</p>
+                                            <h3 class="dayInfo">Date: ${data.list[0].dt_txt} </h3>
+                                            <p>Temperature: ${data.list[0].main.temp} °F</p>
+                                            <p>Humidity: ${data.list[0].main.humidity}%</p>
+                                            <p>Wind: ${data.list[0].wind.speed} mph</p>
                                         </div>
                                         <div id="day-2" class="days" >
-                                            <h3 class="dayInfo">Date:${data.list[1].dt_txt} </h3>
-                                            <p>Temperature:${data.list[1].main.temp} °F</p>
-                                            <p>Humidity:${data.list[1].main.humidity}%</p>
-                                            <p>Wind:${data.list[1].wind.speed} mph</p>
+                                            <h3 class="dayInfo">Date: ${data.list[1].dt_txt} </h3>
+                                            <p>Temperature: ${data.list[1].main.temp} °F</p>
+                                            <p>Humidity: ${data.list[1].main.humidity}%</p>
+                                            <p>Wind: ${data.list[1].wind.speed} mph</p>
                                         </div>
                                         <div id="day-3" class="days" c>
-                                            <h3 class="dayInfo">Date:${data.list[2].dt_txt} </h3>
-                                            <p>Temperature:${data.list[2].main.temp} °F</p>
-                                            <p>Humidity:${data.list[2].main.humidity}%</p>
-                                            <p>Wind:${data.list[2].wind.speed} mph</p>
+                                            <h3 class="dayInfo">Date: ${data.list[2].dt_txt} </h3>
+                                            <p>Temperature: ${data.list[2].main.temp} °F</p>
+                                            <p>Humidity: ${data.list[2].main.humidity}%</p>
+                                            <p>Wind: ${data.list[2].wind.speed} mph</p>
                                         </div>
                                         <div id="day-4" class="days" >
-                                            <h3 class="dayInfo">Date:${data.list[3].dt_txt}dt_txt </h3>
-                                            <p>Temperature:${data.list[3].main.temp} °F</p>
-                                            <p>Humidity:${data.list[3].main.humidity}%</p>
-                                            <p>Wind:${data.list[3].wind.speed} mph</p>
+                                            <h3 class="dayInfo">Date: ${data.list[3].dt_txt} </h3>
+                                            <p>Temperature: ${data.list[3].main.temp} °F</p>
+                                            <p>Humidity: ${data.list[3].main.humidity}%</p>
+                                            <p>Wind: ${data.list[3].wind.speed} mph</p>
                                         </div>
                                         <div id="day-5" class="days" >
-                                            <h3 class="dayInfo">Date:${data.list[4].dt_txt} </h3>
-                                            <p>Temperature:${data.list[4].main.temp} °F</p>
-                                            <p>Humidity${data.list[4].main.humidity}:%</p>
-                                            <p>Wind:${data.list[4].wind.speed} mph</p>
+                                            <h3 class="dayInfo">Date: ${data.list[4].dt_txt} </h3>
+                                            <p>Temperature: ${data.list[4].main.temp} °F</p>
+                                            <p>Humidity: ${data.list[4].main.humidity}:%</p>
+                                            <p>Wind: ${data.list[4].wind.speed} mph</p>
                                         </div>
                                         `;
                                 
@@ -130,6 +142,7 @@ $(document).ready(function() {
                                 if(forecastRemover){
                                     currentForecast5.removeChild(forecastRemover);
                                 }
+                                
                                 currentForecast5.insertAdjacentHTML('beforeend',currentForecastCards)
                             })
                         }
@@ -142,7 +155,7 @@ $(document).ready(function() {
             getWeather();
         
         
-        };
+        }
         
     });
 
