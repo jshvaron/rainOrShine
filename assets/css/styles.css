@@ -152,6 +152,15 @@ aside{
     
 
 }
+#mostCurrentWeather{
+    border: 2px solid black;
+    border-radius: 20px;
+    height: 300px;
+    width: 33%;
+    background-color: rgba(0, 48, 151, 0.384);
+    box-shadow: 20px 20px 30px rgba(2, 2, 2, 0.240);
+    color: white;
+}
 .titles {
     margin-left: 63px;
 }

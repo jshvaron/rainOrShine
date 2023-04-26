@@ -41,7 +41,8 @@ $(document).ready(function() {
         if (event.target.classList.contains('cityName')) {
           const cityName = event.target.textContent;
           const APIKey = '5072822e38b72f252227ac7250f60b68';
-          console.log(`Clicked on city: ${cityName} w/ ${APIKey}`);
+
+          console.log(`${cityName} has been searched and logged to History`);
             // Make API request using cityName as input
             // TODO:
             // when button form cityList is clicked
@@ -49,10 +50,48 @@ $(document).ready(function() {
             // if it = lat and long then it will pull the needed data
             // gets weather from API based off user input 
             function getWeather() {
-                var queryURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIKey}` 
-                fetch(queryURL)
+                const locationQueryURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIKey}` 
+                fetch(locationQueryURL)
                     .then(res => res.json())
-                    .then(data => console.log(data))
+                    .then(data => {
+                        console.log(data);
+                        // loops through data paramater that is pulled from our fetch to the API to get Lat and long
+                        for (var i = 0; i < data.length; i++) {
+                            console.log(`${cityName} has a lattitude of: ${data[i].lat} and a longitude of:${data[i].lon}`)
+
+                            const weatherQueryURL = `https://api.openweathermap.org/data/2.5/weather?lat=${data[i].lat}&lon=${data[i].lon}&units=imperial&appid=5072822e38b72f252227ac7250f60b68`
+                            // fetches new query URL w/ lat,lon, and imperial data
+                            fetch(weatherQueryURL)
+                                .then(res => res.json())
+                                .then(data => {
+                                    console.log(data);
+                                        const currentWeatherTables = document.getElementById('currentTables')
+                                        const currentWeathertable1 = `
+                                        <div id="mostCurrentWeather"> 
+                                            <figure>City: ${data.name}</figure>
+                                            <figure>Temperature: ${data.main.temp}</figure>
+                                            <figure>Wind: ${data.wind.speed}</figure>
+                                            <figure>Humidity: ${data.main.humidity}</figure>
+                                        </div>`;
+                                        console.log(currentWeatherTables); // check if the element is found
+                                         
+                                        let cardRemover = document.getElementById('currentWeather')
+                                        if(currentWeatherTables){
+                                            cardRemover.remove();
+                                        };
+                                        currentWeatherTables.insertAdjacentHTML('beforeend', currentWeathertable1);
+
+                                    
+                                });
+
+                            
+                        }
+                    })
+                // .catch(error => console.error(error));
+
+                fetch
+
+
             };
             getWeather();
         
@@ -65,6 +104,10 @@ $(document).ready(function() {
     // `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIKey}` 
 
     // http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
+
+    // http://api.openweathermap.org/geo/1.0/reverse?lat=32.7762719&lon=-96.7968559&limit=1&appid=5072822e38b72f252227ac7250f60b68
+
+    // https://api.openweathermap.org/data/2.5/weather?lat=32.7762719&lon=-96.7968559&appid=5072822e38b72f252227ac7250f60b68
 
 
 });
