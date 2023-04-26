@@ -68,17 +68,18 @@ $(document).ready(function() {
                                         const currentWeatherTables = document.getElementById('currentTables')
                                         const currentWeathertable1 = `
                                         <div id="mostCurrentWeather"> 
-                                            <figure>City: ${data.name}</figure>
+                                            <figure>City: ${data.name} <img src='https://openweathermap.org/img/wn/${data.weather[0].icon}.png' </figure>
                                             <figure>Temperature: ${data.main.temp}</figure>
                                             <figure>Wind: ${data.wind.speed}</figure>
                                             <figure>Humidity: ${data.main.humidity}</figure>
                                         </div>`;
                                         console.log(currentWeatherTables); // check if the element is found
-                                         
+                                        currentWeatherTables.innerHTML = '';
                                         let cardRemover = document.getElementById('currentWeather')
-                                        if(currentWeatherTables){
-                                            cardRemover.remove();
-                                        };
+                                        if(cardRemover){
+                                            currentWeatherTables.removeChild(cardRemover);
+                                        }
+                                        
                                         currentWeatherTables.insertAdjacentHTML('beforeend', currentWeathertable1);
 
                                     

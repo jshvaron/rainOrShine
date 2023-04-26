@@ -160,6 +160,10 @@ aside{
     background-color: rgba(0, 48, 151, 0.384);
     box-shadow: 20px 20px 30px rgba(2, 2, 2, 0.240);
     color: white;
+    font-size: 30px;
+}
+figure{ 
+    margin-top: 15px;
 }
 .titles {
     margin-left: 63px;
