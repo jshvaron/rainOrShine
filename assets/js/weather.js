@@ -24,12 +24,12 @@ $(document).ready(function() {
         const input = citySearch.value;
         const newCityButton = `<button class='cityName'>${input}</button`;
         console.log(citySearch.value);
-        cityList.insertAdjacentHTML('beforeend', newCityButton);
+        cityList.insertAdjacentHTML('beforeend', newCityButton);        
         citySearch.value = '';
         
 
       } else{
-        // lol
+        // lol caps city count at 10 searches
         alert('To search the Weather in more cities, see our Premium Subsricption.')
       };
     
@@ -66,27 +66,57 @@ $(document).ready(function() {
                                 .then(data => {
                                     console.log(data);
 
-                                        // grabs currentTables and inserts currentWeathertables1 as a new card with the data from the API call.
-                                        const currentWeatherTables = document.getElementById('currentTables')
-                                        const currentWeathertable1 = `
-                                        <div id="mostCurrentWeather"> 
-                                            <figure>City: ${data.name} <img src='https://openweathermap.org/img/wn/${data.weather[0].icon}.png' </figure>
-                                            <figure>Temperature: ${data.main.temp} °F </figure>
-                                            <figure>Wind: ${data.wind.speed} mph</figure>
-                                            <figure>Humidity: ${data.main.humidity}%</figure>
-                                        </div>`;
-                                        console.log(currentWeatherTables); // check if the element is found
+                                    // grabs currentTables and inserts currentWeathertables1 as a new card with the data from the API call.
+                                    const currentWeatherTables = document.getElementById('currentTables')
+                                    const currentWeathertable1 = `
+                                    <div id="mostCurrentWeather"> 
+                                        <figure>City: ${data.name} <img src='https://openweathermap.org/img/wn/${data.weather[0].icon}.png' </figure>
+                                        <figure>Temperature: ${data.main.temp} °F </figure>
+                                        <figure>Wind: ${data.wind.speed} mph</figure>
+                                        <figure>Humidity: ${data.main.humidity}%</figure>
+                                    </div>`;
+                                    const fiver = `
+                                    <aside>
+                                    <div id="day-1" class="days" >
+                                        <h3 class="dayInfo">Date</h3>
+                                        <p>Temperature:</p>
+                                        <p>Humidity:</p>
+                                        <p>Wind:</p>
+                                    </div>
+                                    <div id="day-2" class="days" >
+                                        <h3 class="dayInfo">Date</h3>
+                                        <p>Temperature:</p>
+                                        <p>Humidity:</p>
+                                        <p>Wind:</p>
+                                    </div>
+                                    <div id="day-3" class="days" c>
+                                        <h3 class="dayInfo">Date</h3>
+                                        <p>Temperature:</p>
+                                        <p>Humidity:</p>
+                                        <p>Wind:</p>
+                                    </div>
+                                    <div id="day-4" class="days" >
+                                        <h3 class="dayInfo">Date</h3>
+                                        <p>Temperature:</p>
+                                        <p>Humidity:</p>
+                                        <p>Wind:</p>
+                                    </div>
+                                    <div id="day-5" class="days" >
+                                        <h3 class="dayInfo">Date</h3>
+                                        <p>Temperature:</p>
+                                        <p>Humidity:</p>
+                                        <p>Wind:</p>
+                                    </div>
+                                </aside>`
 
-                                        // replaces empty current weather place holder with newly rendered weather card with user input. If user input card already exist, when a new cityButton is clicked it will replace the weather card that is displayed.
-                                        currentWeatherTables.innerHTML = '';
-                                        let cardRemover = document.getElementById('currentWeather')
-                                        if(cardRemover){
-                                            currentWeatherTables.removeChild(cardRemover);
-                                        }
-                                        
-                                        currentWeatherTables.insertAdjacentHTML('beforeend', currentWeathertable1);
-
-                                    
+                                    // replaces empty current weather place holder with newly rendered weather card with user input. If user input card already exist, when a new cityButton is clicked it will replace the weather card that is displayed.
+                                    currentWeatherTables.innerHTML = '';
+                                    let cardRemover = document.getElementById('currentWeather')
+                                    if(cardRemover){
+                                        currentWeatherTables.removeChild(cardRemover);
+                                    }
+                                    currentWeatherTables.insertAdjacentHTML('beforeend', currentWeathertable1);
+                                
                                 });
 
                             
@@ -101,6 +131,7 @@ $(document).ready(function() {
         
         
         };
+        
     });
 
     

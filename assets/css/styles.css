@@ -81,14 +81,13 @@ input {
 }
 
 p {
-    border: 1px solid black;
+    height: 40px;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     background-color: rgba(0, 48, 151, 0.596);
-    border-radius: 15px;
+    border-radius: 5px;
     color: white;
-    height: 30px;
 }
 button{
     margin-top: 5px;

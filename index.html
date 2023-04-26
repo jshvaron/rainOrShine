@@ -17,11 +17,11 @@
 
         <div id="searchArea" class="style">
             <section class="searchBar">
-                <h2 id="searchTitle">Search for City:</h2>
+                <h2 id="searchTitle">Welcome!</h2>
                 <input type="text" id="searcher" placeholder="What city are you looking for?">
-                <button id="btn">Search</button>
+                <button id="btn" id="renderCity">Find a city</button>
                 <div id="city-list">
-                    <h3 id="city-history-title">History</h3>
+                    <h3 id="city-history-title">Choose a City to view Weather</h3>
                 </div>
                 <!-- nav is to navigate prior city searches that rendered through -->
                 <nav id="cityhistory"></nav>
@@ -45,20 +45,36 @@
             <section id="fiver" class="style">
                 <h2 class="titles">5 Day Forecast:</h2>
                 <aside>
+                    <!-- rendered five day forecast will render/replace children in <aside> -->
                     <div id="day-1" class="days" >
-                        <h3 class="dayInfo">Monday</h3>
+                        <h3 class="dayInfo">Date</h3>
+                        <p>Temperature:</p>
+                        <p>Humidity:</p>
+                        <p>Wind:</p>
                     </div>
                     <div id="day-2" class="days" >
-                        <h3 class="dayInfo">Tuesday</h3>
+                        <h3 class="dayInfo">Date</h3>
+                        <p>Temperature:</p>
+                        <p>Humidity:</p>
+                        <p>Wind:</p>
                     </div>
                     <div id="day-3" class="days" c>
-                        <h3 class="dayInfo">Wednesday</h3>
+                        <h3 class="dayInfo">Date</h3>
+                        <p>Temperature:</p>
+                        <p>Humidity:</p>
+                        <p>Wind:</p>
                     </div>
                     <div id="day-4" class="days" >
-                        <h3 class="dayInfo">Thursday</h3>
+                        <h3 class="dayInfo">Date</h3>
+                        <p>Temperature:</p>
+                        <p>Humidity:</p>
+                        <p>Wind:</p>
                     </div>
                     <div id="day-5" class="days" >
-                        <h3 class="dayInfo">Friday</h3>
+                        <h3 class="dayInfo">Date</h3>
+                        <p>Temperature:</p>
+                        <p>Humidity:</p>
+                        <p>Wind:</p>
                     </div>
                 </aside>
 
