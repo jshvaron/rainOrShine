@@ -71,9 +71,9 @@ $(document).ready(function() {
                                         const currentWeathertable1 = `
                                         <div id="mostCurrentWeather"> 
                                             <figure>City: ${data.name} <img src='https://openweathermap.org/img/wn/${data.weather[0].icon}.png' </figure>
-                                            <figure>Temperature: ${data.main.temp}</figure>
-                                            <figure>Wind: ${data.wind.speed}</figure>
-                                            <figure>Humidity: ${data.main.humidity}</figure>
+                                            <figure>Temperature: ${data.main.temp} °F </figure>
+                                            <figure>Wind: ${data.wind.speed} mph</figure>
+                                            <figure>Humidity: ${data.main.humidity}%</figure>
                                         </div>`;
                                         console.log(currentWeatherTables); // check if the element is found
 
@@ -94,7 +94,6 @@ $(document).ready(function() {
                     })
                 // .catch(error => console.error(error));
 
-                fetch
 
 
             };
@@ -112,7 +111,8 @@ $(document).ready(function() {
 
     // http://api.openweathermap.org/geo/1.0/reverse?lat=32.7762719&lon=-96.7968559&limit=1&appid=5072822e38b72f252227ac7250f60b68
 
-    // https://api.openweathermap.org/data/2.5/weather?lat=32.7762719&lon=-96.7968559&appid=5072822e38b72f252227ac7250f60b68
+    // https://api.openweathermap.org/data/2.5/forecast?lat=32.7762719&lon=-96.7968559&units=imperial&appid=5072822e38b72f252227ac7250f60b68
+
 
 
 });
