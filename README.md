@@ -6,7 +6,10 @@
     
     weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
 Deployed page: https://jshvaron.github.io/rainOrShine/
+DEMO: https://drive.google.com/file/d/1uOlA2XYoen9eISo_OmmA6w95AesdEKSn/view
 ![Weather Dashboard](./assets/pictures/Screenshot%202023-04-27%20at%201.46.53%20PM.png)
+    DEMO: https://drive.google.com/file/d/1uOlA2XYoen9eISo_OmmA6w95AesdEKSn/view
+![weather Dashboard Demo](./assets/pictures/Rain%20or%20Shine.gif)
 
 ## Table of Contents
 
@@ -26,7 +29,8 @@ Deployed page: https://jshvaron.github.io/rainOrShine/
 
 ## Usage
 
-    see installation
+    DEMO: https://drive.google.com/file/d/1uOlA2XYoen9eISo_OmmA6w95AesdEKSn/view
+![weather Dashboard Demo](./assets/pictures/Rain%20or%20Shine.gif)
 
 ## Licenses
 
