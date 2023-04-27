@@ -95,6 +95,7 @@ p {
     margin-right: 5px;
 
 }
+
 button{
     margin-top: 5px;
     background-color: rgba(0, 48, 151, 0.596);
@@ -161,18 +162,20 @@ aside{
     background-color: rgba(0, 48, 151, 0.384);
     box-shadow: 20px 20px 30px rgba(2, 2, 2, 0.240);
     color: white;
-    
+    font-size: 23px;
+
 
 }
+
 #mostCurrentWeather{
     border: 2px solid black;
     border-radius: 20px;
-    height: 300px;
+    height: 50%;
     width: 33%;
     background-color: rgba(0, 48, 151, 0.384);
     box-shadow: 20px 20px 30px rgba(2, 2, 2, 0.240);
     color: white;
-    font-size: 30px;
+    font-size: 23px;
 }
 figure{ 
     margin-top: 15px;

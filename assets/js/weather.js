@@ -3,36 +3,68 @@ $(document).ready(function() {
 
 
 
-    const searchbutton = document.getElementById('btn');
-    const citySearch = document.getElementById('searcher');
-    const cityList = document.getElementById('city-list');
-    const button = document.getElementsByTagName('button');
-    const MAX_CITY_SEARCH = 10; // Maximum number of searches to display
-    // let city; allows placeholder for variable to be reassigned
+    // const searchbutton = document.getElementById('btn');
+    // const citySearch = document.getElementById('searcher');
+    // const cityList = document.getElementById('city-list');
+    // const button = document.getElementsByTagName('button');
+    // const MAX_CITY_SEARCH = 10; // Maximum number of searches to display
+    // // let city; allows placeholder for variable to be reassigned
 
     
-    console.log(button);
+    // console.log(button);
         
     
-    // waits for click, takes user input and renders a p tag that passes user input with a max of 15 searches. This max is set to fill the container appropriatly. Alert will populate a msg for premium content. That will be used for future implementation
-    searchbutton.addEventListener('click', () => {
+    // // waits for click, takes user input and renders a p tag that passes user input with a max of 15 searches. This max is set to fill the container appropriatly. Alert will populate a msg for premium content. That will be used for future implementation
+    // searchbutton.addEventListener('click', () => {
     
-      const pCount = cityList.querySelectorAll('button').length; // Get the number of button elements in the section
-      if (pCount < MAX_CITY_SEARCH) { // Check if the maximum limit is not reached
-        // if max is not reached, the following will create a new button for the user input 'city' to live in.
-        const input = citySearch.value;
-        const newCityButton = `<button class='cityName'>${input}</button>`;
-        console.log(citySearch.value);
-        citySearch.value = '';
-        cityList.insertAdjacentHTML('beforeend', newCityButton );
+    //   const pCount = cityList.querySelectorAll('button').length; // Get the number of button elements in the section
+    //   if (pCount < MAX_CITY_SEARCH) { // Check if the maximum limit is not reached
+    //     // if max is not reached, the following will create a new button for the user input 'city' to live in.
+    //     const input = citySearch.value;
+    //     const newCityButton = `<button class='cityName'>${input}</button>`;
+    //     console.log(citySearch.value);
+    //     citySearch.value = '';
+    //     cityList.insertAdjacentHTML('beforeend', newCityButton );
  
-      } else{
-        // lol caps city count at 10 searches
-        alert('To search the Weather in more cities, see our Premium Subsricption.')
-      };
+    //   } else{
+    //     // lol caps city count at 10 searches
+    //     alert('To search the Weather in more cities, see our Premium Subsricption.')
+    //   };
     
       
+    // });
+
+  const searchbutton = document.getElementById('btn');
+  const citySearch = document.getElementById('searcher');
+  const cityList = document.getElementById('city-list');
+  const button = document.getElementsByTagName('button');
+  const MAX_CITY_SEARCH = 10;
+    //   renders existing buttons
+  function renderCityButtons() {
+    const savedCityButtons = JSON.parse(localStorage.getItem('cityList')) || [];
+    savedCityButtons.forEach(cityName => {
+      const newCityButton = `<button class='cityName'>${cityName}</button>`;
+      cityList.insertAdjacentHTML('beforeend', newCityButton);
     });
+  }
+
+  renderCityButtons();
+    
+    // adds new city button on click with a max search value,gets and pushes new city to storage array,sets new array
+  searchbutton.addEventListener('click', () => {
+    const pCount = cityList.querySelectorAll('button').length;
+    if (pCount < MAX_CITY_SEARCH) {
+      const input = citySearch.value;
+      const newCityButton = `<button class='cityName'>${input}</button>`;
+      citySearch.value = '';
+      cityList.insertAdjacentHTML('beforeend', newCityButton);
+      const savedCityButtons = JSON.parse(localStorage.getItem('cityList')) || [];
+      savedCityButtons.push(input);
+      localStorage.setItem('cityList', JSON.stringify(savedCityButtons));
+    } else {
+      alert('To search the weather in more cities, see our Premium Subscription.')
+    };  
+  });
 
     // set variable to get buttons, if there is a buttons saved, it will insert into the DOM
     const savedCityButton = localStorage.getItem('findCity');
@@ -74,7 +106,8 @@ $(document).ready(function() {
                                 const currentWeatherTables = document.getElementById('currentTables')
                                 const currentWeathertable1 = `
                                 <div id="mostCurrentWeather"> 
-                                    <figure>City: ${data.name} <img src='https://openweathermap.org/img/wn/${data.weather[0].icon}.png' </figure>
+                                <p><img src='https://openweathermap.org/img/wn/${data.weather[0].icon}.png'</p>
+                                    <figure>City: ${data.name}  </figure>
                                     <figure>Temperature: ${data.main.temp} °F </figure>
                                     <figure>Wind: ${data.wind.speed} mph</figure>
                                     <figure>Humidity: ${data.main.humidity}%</figure>
