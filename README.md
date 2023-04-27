@@ -5,6 +5,7 @@
 ## Description
     
     weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+Deployed page: https://jshvaron.github.io/rainOrShine/
 ![Weather Dashboard](./assets/pictures/Screenshot%202023-04-27%20at%201.46.53%20PM.png)
 
 ## Table of Contents
