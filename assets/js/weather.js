@@ -86,7 +86,7 @@ $(document).ready(function() {
             // if it = lat and long then it will pull the needed data
             // gets weather from API based off user input 
             function getWeather() {
-                const locationQueryURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIKey}` 
+                const locationQueryURL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIKey}` 
                 fetch(locationQueryURL)
                     .then(res => res.json())
                     .then(data => {
