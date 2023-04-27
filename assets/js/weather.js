@@ -9,8 +9,7 @@ $(document).ready(function() {
     const button = document.getElementsByTagName('button');
     const MAX_CITY_SEARCH = 10; // Maximum number of searches to display
     // let city; allows placeholder for variable to be reassigned
-    var city;
-    city;
+
     
     console.log(button);
         
@@ -25,21 +24,8 @@ $(document).ready(function() {
         const newCityButton = `<button class='cityName'>${input}</button>`;
         console.log(citySearch.value);
         citySearch.value = '';
-        // stores button to local storage
-        localStorage.setItem('findCity', newCityButton);
-        // get button from local storage
-        function getValueFromLocalStorage(value) {
-            for (let i = 0; i < localStorage.length; i++) {
-                const key = localStorage.key(i);
-                const storedValue = localStorage.getItem(key);
-            }
-            return null; // if value is not found
-        }
-        getValueFromLocalStorage();
-        cityList.insertAdjacentHTML('beforeend', newCityButton);        
-
-        
-
+        cityList.insertAdjacentHTML('beforeend', newCityButton );
+ 
       } else{
         // lol caps city count at 10 searches
         alert('To search the Weather in more cities, see our Premium Subsricption.')
@@ -47,6 +33,12 @@ $(document).ready(function() {
     
       
     });
+
+    // set variable to get buttons, if there is a buttons saved, it will insert into the DOM
+    const savedCityButton = localStorage.getItem('findCity');
+    if (savedCityButton) {
+    cityList.insertAdjacentHTML('beforeend', savedCityButton);
+    };
 
     //  clicks on the doc log the text inside the clicked el(specifically buttons)
     document.addEventListener('click', function(event) {
@@ -97,7 +89,7 @@ $(document).ready(function() {
                                 currentWeatherTables.insertAdjacentHTML('beforeend', currentWeathertable1);
                                 
                             }); 
-                            const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${data[i].lat}&lon=${data[i].lon}&units=imperial&cnt=5&appid=5072822e38b72f252227ac7250f60b68`
+                            const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${data[i].lat}&lon=${data[i].lon}&units=imperial&appid=5072822e38b72f252227ac7250f60b68`
                             fetch(forecastURL)
                                 .then(res => res.json())
                                 .then(data => {
@@ -107,30 +99,35 @@ $(document).ready(function() {
                                     const currentForecastCards = `
                                         <div id="day-1" class="days" >
                                             <h3 class="dayInfo">Date: ${data.list[0].dt_txt} </h3>
+                                            <p> <img src='https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}.png'> </p>
                                             <p>Temperature: ${data.list[0].main.temp} °F</p>
                                             <p>Humidity: ${data.list[0].main.humidity}%</p>
                                             <p>Wind: ${data.list[0].wind.speed} mph</p>
                                         </div>
                                         <div id="day-2" class="days" >
-                                            <h3 class="dayInfo">Date: ${data.list[1].dt_txt} </h3>
+                                            <h3 class="dayInfo">Date: ${data.list[8].dt_txt} </h3>
+                                            <p> <img src='https://openweathermap.org/img/wn/${data.list[8].weather[0].icon}.png'> </p>
                                             <p>Temperature: ${data.list[1].main.temp} °F</p>
                                             <p>Humidity: ${data.list[1].main.humidity}%</p>
                                             <p>Wind: ${data.list[1].wind.speed} mph</p>
                                         </div>
                                         <div id="day-3" class="days" c>
-                                            <h3 class="dayInfo">Date: ${data.list[2].dt_txt} </h3>
+                                            <h3 class="dayInfo">Date: ${data.list[16].dt_txt} </h3>
+                                            <p> <img src='https://openweathermap.org/img/wn/${data.list[16].weather[0].icon}.png'> </p>
                                             <p>Temperature: ${data.list[2].main.temp} °F</p>
                                             <p>Humidity: ${data.list[2].main.humidity}%</p>
                                             <p>Wind: ${data.list[2].wind.speed} mph</p>
                                         </div>
                                         <div id="day-4" class="days" >
-                                            <h3 class="dayInfo">Date: ${data.list[3].dt_txt} </h3>
+                                            <h3 class="dayInfo">Date: ${data.list[24].dt_txt} </h3>
+                                            <p> <img src='https://openweathermap.org/img/wn/${data.list[24].weather[0].icon}.png'> </p>
                                             <p>Temperature: ${data.list[3].main.temp} °F</p>
                                             <p>Humidity: ${data.list[3].main.humidity}%</p>
                                             <p>Wind: ${data.list[3].wind.speed} mph</p>
                                         </div>
                                         <div id="day-5" class="days" >
-                                            <h3 class="dayInfo">Date: ${data.list[4].dt_txt} </h3>
+                                            <h3 class="dayInfo">Date: ${data.list[32].dt_txt} </h3>
+                                            <p> <img src='https://openweathermap.org/img/wn/${data.list[32].weather[0].icon}.png'> </p>
                                             <p>Temperature: ${data.list[4].main.temp} °F</p>
                                             <p>Humidity: ${data.list[4].main.humidity}:%</p>
                                             <p>Wind: ${data.list[4].wind.speed} mph</p>
@@ -158,50 +155,5 @@ $(document).ready(function() {
         }
         
     });
-
-    
-    
-    // `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIKey}` 
-
-    // http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
-
-    // http://api.openweathermap.org/geo/1.0/reverse?lat=32.7762719&lon=-96.7968559&limit=1&appid=5072822e38b72f252227ac7250f60b68
-
-    // https://api.openweathermap.org/data/2.5/forecast?lat=32.7762719&lon=-96.7968559&units=imperial&appid=5072822e38b72f252227ac7250f60b68
-    // https://api.openweathermap.org/data/2.5/forecast?lat=32.7762719&lon=-96.7968559&units=imperial&appid=5072822e38b72f252227ac7250f60b68
-
-//     const fiver = `
-//     <aside>
-//     <div id="day-1" class="days" >
-//         <h3 class="dayInfo">Date</h3>
-//         <p>Temperature: °F</p>
-//         <p>Humidity: </p>
-//         <p>Wind: </p>
-//     </div>
-//     <div id="day-2" class="days" >
-//         <h3 class="dayInfo">Date</h3>
-//         <p>Temperature: °F</p>
-//         <p>Humidity: </p>
-//         <p>Wind: </p>
-//     </div>
-//     <div id="day-3" class="days" c>
-//         <h3 class="dayInfo">Date</h3>
-//         <p>Temperature: °F</p>
-//         <p>Humidity: </p>
-//         <p>Wind: </p>
-//     </div>
-//     <div id="day-4" class="days" >
-//         <h3 class="dayInfo">Date</h3>
-//         <p>Temperature: °F</p>
-//         <p>Humidity: </p>
-//         <p>Wind: </p>
-//     </div>
-//     <div id="day-5" class="days" >
-//         <h3 class="dayInfo">Date</h3>
-//         <p>Temperature: °F</p>
-//         <p>Humidity: </p>
-//         <p>Wind: </p>
-//     </div>
-// </aside>`
 
 });
