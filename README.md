@@ -5,6 +5,7 @@
 ## Description
     
     weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+![Weather Dashboard](./assets/pictures/Screenshot%202023-04-27%20at%201.46.53%20PM.png)
 
 ## Table of Contents
 
@@ -32,8 +33,7 @@
 
 MIT License
 
-![MIT License Image](assets/MIT.png)
-
+   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 ## Contribute
 
     clone repo and send a pull request. Will pull upon approval.
